@@ -23,15 +23,6 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'bap' ); ?></a>
-<ul>
-	<li>Menu 1</li>
-	<li>Menu 2</li>
-	<li>Menu 3</li>
-	<li>Menu 4</li>
-	<li>Menu 5</li>
-	<li>Menu 6</li>
-	<li>Menu 7</li>
-</ul>
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
 			<?php
@@ -52,12 +43,12 @@
 			<?php endif; ?>
 		</div><!-- .site-branding -->
 
-		<!--nav id="site-navigation" class="main-navigation">
+		<nav id="site-navigation" class="main-navigation">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'bap' ); ?></button>
 			<?php
 			wp_nav_menu( array(
 				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
+				//'menu_id'        => 'primary-menu',
 			) );
 			?>		
 		</nav><!-- #site-navigation -->
