@@ -611,28 +611,27 @@ textarea {
 # Navigation
 --------------------------------------------------------------*/
 
-
     /*--------------------------------------------------------------
     ## Links
     --------------------------------------------------------------*/
 a {
-	color: royalblue;
+    color: royalblue;
 }
 
 a:visited {
-	color: purple;
+    color: purple;
 }
 
 a:hover, a:focus, a:active {
-	color: midnightblue;
+    color: midnightblue;
 }*/
 
 a:focus {
-	outline: thin dotted;
+    outline: thin dotted;
 }
 
 a:hover, a:active {
-	outline: 0;
+    outline: 0;
 }
 
     /*--------------------------------------------------------------
@@ -642,7 +641,7 @@ a:hover, a:active {
     display:none;
 }
 .main-navigation ul {
-	width: 98%;
+    width: 100%;
     margin: 0 auto;
     list-style: none;
     box-sizing: border-box;
@@ -655,16 +654,16 @@ a:hover, a:active {
     align-items:flex-start;
 }
 .main-navigation ul ul ul {
-	left: -999em;
-	top: 0;
+    left: -999em;
+    top: 0;
 }
 
 .main-navigation ul ul li:hover > ul,
 .main-navigation ul ul li.focus > ul {
-	left: 100%;
+    left: 100%;
 }
 .main-navigation li {
-	background-color:#c0c0c0;    
+    background-color:#c0c0c0;    
     padding: 0px;
     font-size: 15px;
     text-align:center;  
@@ -688,25 +687,26 @@ a:hover, a:active {
 
 /* Small menu. */
 .menu-toggle,
-.main-navigation.toggled ul {	
+.main-navigation.toggled ul {   
 }
 
 @media screen and (min-width: 37.5em) {
-	.menu-toggle {
-		display: none;
-	}
-	.main-navigation ul {
-		display: flex;
-		flex-flow: row wrap;		
-	}
+    .menu-toggle {
+        display: none;
+    }
+    .main-navigation ul {
+        display: flex;
+        flex-flow: row wrap;        
+    }
 }
 /*
 .site-main .comment-navigation, .site-main
 .posts-navigation, .site-main
 .post-navigation {
-	margin: 0 0 1.5em;
-	overflow: hidden;
+    margin: 0 0 1.5em;
+    overflow: hidden;
 }*/
+
 
 /*--------------------------------------------------------------
 # Accessibility
