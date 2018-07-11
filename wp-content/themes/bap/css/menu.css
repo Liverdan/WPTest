@@ -71,6 +71,9 @@ a:hover, a:active {
     background-color:black;
     color:orange;
 }
+.ui.button{
+    padding: 2px;
+}
 
 /* Small menu. */
 .menu-toggle,
