@@ -159,3 +159,31 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 include('inc/form_function.php');
+
+/**
+ * Activation CDN Jquery et Jquery_UI
+ */
+
+function jquery_jquery_ui() {
+ if (!is_admin()) {
+  wp_deregister_script('jquery');
+
+  // Google API (CDN)
+  wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js', false, '3.3.1', true);
+  wp_register_script('jquery-ui', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js', array('jquery'), "1.12.1", true);
+
+  wp_enqueue_script('jquery');
+  wp_enqueue_script('jquery-ui');
+ }
+}
+add_action('init', 'jquery_jquery_ui');
+
+
+function executeJQ(){
+ wp_register_script("custom", get_template_directory_uri()."/js/executeJQ.js", array("jquery", "jquery-ui"), "2018.07.11", true);
+ wp_enqueue_script("custom");
+}
+
+add_action("init", "executeJQ"); 
+
+
