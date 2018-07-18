@@ -74,7 +74,9 @@ a:hover, a:active {
 .ui.button{
     padding: 2px;
 }
-
+#opener{
+    display: 
+}
 /* Small menu. */
 .menu-toggle,
 .main-navigation.toggled ul {   
