@@ -23,11 +23,12 @@ add_action("after_switch_theme", "testTable");*/
 
 // Récupération des données $_post depuis le formulaire présent dans monformulaire.php
 			$data = $_POST;
-			$valid= TRUE;
+			$valid = FALSE;
 			$firstname = '';
 			$lastname = '';
 			$mail = '';	
-			$txtBtn = 'Envoyer';
+			$txtBtn1 = 'Enregister';
+			$txtBtn2 = 'Envoyer';
 			$alerte = "Vous avez oubliez de remplir votre ";
 			$lastname = isset($data['lastname']) ? $data['lastname'] : '';
 			$firstname = isset($data['firstname']) ? $data['firstname'] : '';
@@ -40,14 +41,34 @@ add_action("after_switch_theme", "testTable");*/
 				$tablename = 'users';
 				$wpdb->show_errors;
 				$dataUsers= array(
-					'name'	=> $lastname,
+					'name'=> $lastname,
 					'firstname' => $firstname,
 					'mail' => $mail,
 					'time'=> $now,
 				);
 				$wpdb->replace($tablename, $dataUsers);
 				echo sprintf('<h3>Monsieur%s %s votre e-mail %s, il est %s</h3>', $lastname, $firstname, $mail,$now);
-				$txtBtn = "Corriger";
+				$txtBtn1 = "Corriger";
+				$valid = TRUE;
 			endif;
-			
-		       
+			var_dump($valid);
+				global $wpdb;
+				$tablename = 'users';
+				$i=0;
+				$cate=$_POST["Categorie"];
+				var_dump($cate);
+				if ($valid == TRUE) :
+				foreach ($cate as $c) {
+					extract($c);
+					$i=$i+1;
+					$choixn="choix_".$i;
+					$priorityn="Priority_".$i;
+					$leveln="niveau_".$i;
+					$wpdb->update($tablename, array(
+						$choixn=> $id,
+						$priorityn=>$Pos,
+						$leveln=>$level),
+						array('mail'=>$mail));
+					//echo sprintf("%s %s %s %s %s %s", $choixn, $id, $priorityn,$Pos, $leveln,$mail);
+				}
+			endif;

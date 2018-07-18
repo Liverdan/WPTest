@@ -39,14 +39,14 @@ get_header();
 			    ?><br />
 			    <label>Votre e-mail : <input type="email" name="mail" placeholder="e-mail" value="<?php echo $mail ?>"/></label>
 			    <?php
-				if (!$mail && count($_POST)) {
-					if (!is_email($mail)) {
+				if (!$mail && count($_POST) && (!is_email($mail))) {
+					//if (!is_email($mail)) {
 					echo sprintf("<span>Votre adresse mail<b>%s </b>n'est pas valide</span>", $mail);
 					$valid = FALSE;
-				}}
+				}
 			    ?><br />
 			    <div class="widget">
-			    	<button id="opener" class="ui-button ui-widget ui-corner-all" type="submit" name="send"><?php echo $txtBtn ?></button>
+			    	<button id="opener" class="ui-button ui-widget ui-corner-all" type="submit" name="send"><?php echo $txtBtn1 ?></button>
 			    <h2>Vos priorités et niveaux</h2>
 			<p>Classer par ordre croissant, en déplacant les flèches suivantes <span class="ui-icon ui-icon-arrowthick-2-n-s"></span> votre choix de formation.</p>
 			<p><i>(Le premier étant le plus important)</i></p>
@@ -75,11 +75,13 @@ get_header();
 				</li>
 				<?php
 				};
-				//var_dump($rows);
 				?>
-			</ul>&nbsp;
+				</ul>&nbsp;
+				<?php
+				
+				?>			
 			<div class="widget">
-		    	<button id="opener" class="ui-button ui-widget ui-corner-all" type="submit"><?php echo $txtBtn ?></button>
+		    	<button id="opener" class="ui-button ui-widget ui-corner-all" type="submit"><?php echo $txtBtn2 ?></button>
 			</div>
 		</form>
 			</div>
