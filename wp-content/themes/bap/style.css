@@ -347,6 +347,10 @@ textarea {
 	-webkit-appearance: button; /* 1 */
 	font: inherit; /* 2 */
 }
+.btnCat{
+    width: 10em
+}
+
 
 /* Interactive
 	 ========================================================================== */
@@ -485,7 +489,7 @@ ul, ol {
 }
 
 ul {
-	list-style: disc;
+	list-style: none;
 }
 
 ol {
@@ -496,6 +500,7 @@ li > ul,
 li > ol {
 	margin-bottom: 0;
 	margin-left: 1.5em;
+	list-style: none;
 }
 
 dt {
@@ -606,7 +611,32 @@ select {
 textarea {
 	width: 100%;
 }
+#sortable{
+    padding:2px;
+    border:#000000 1px solid;
+    width: 60%;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+ul#sortable li{
+    border:black solid 1px;
+    width: 50%;
+}
+ul#sortable li.fantom{
+    margin:2px;
+    height:28px;
+    border:black solid 1px;
+    background-color: orange;
+}
+.btnCat{
+    flex:1 1 50%;
+}
 
+.ui-icon{
+    float: left;
+}
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
