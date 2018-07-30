@@ -2,7 +2,7 @@
 /**
  * The template for displaying all pages
  * 
- * Template Name: monformulaire
+ * Template Name: MonFormulaire
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package BAP
@@ -37,16 +37,16 @@ get_header();
 					$valid = FALSE;
 				}
 			    ?><br />
-			    <label>Votre e-mail : <input type="email" name="mail" placeholder="e-mail" value="<?php echo $mail ?>"/></label>
+			    <label>Votre e-mail : <input type="email" name="mail" placeholder="e-mail" value="<?php echo isset($data['mail']) ? $data['mail'] : ''; ?>"/></label>
 			    <?php
-				if (!$mail && count($_POST) && (!is_email($mail))) {
-					//if (!is_email($mail)) {
+				if (!$mail && count($_POST)) {
 					echo sprintf("<span>Votre adresse mail<b>%s </b>n'est pas valide</span>", $mail);
 					$valid = FALSE;
 				}
 			    ?><br />
 			    <div class="widget">
 			    	<button id="opener" class="ui-button ui-widget ui-corner-all" type="submit" name="send"><?php echo $txtBtn1 ?></button>
+			    </div>
 			    <h2>Vos priorités et niveaux</h2>
 			<p>Classer par ordre croissant, en déplacant les flèches suivantes <span class="ui-icon ui-icon-arrowthick-2-n-s"></span> votre choix de formation.</p>
 			<p><i>(Le premier étant le plus important)</i></p>
@@ -64,11 +64,11 @@ get_header();
 					$i++;
 				?>
 				<li>
-					<span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-			    	<input type="text" name="Categorie[<?php echo $i;?>][id]" value="<?php echo $row->id;?>"/>
-			    	<input type="text" name="Categorie[<?php echo $i;?>][cat]" value="<?php echo $row->cat;?>"/>
+			    	<input type="hidden" name="Categorie[<?php echo $i;?>][id]" value="<?php echo $row->id;?>"/>
+			    	<span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+			    	<input type="button" class="btnCat" name="Categorie[<?php echo $i;?>][cat]" value="<?php echo $row->cat;?>"/>
 			    	<input type="text" name="Categorie[<?php echo $i;?>][mail]" value="<?php echo isset($data['mail']) ? $data['mail'] : '';?>"/>
-			    	<input type="text" class="positionInput" name="Categorie[<?php echo $i;?>][Pos]" value="<?php echo $row->Pos;?>"/>
+			    	<input type="hidden" class="positionInput" name="Categorie[<?php echo $i;?>][Pos]" value="<?php echo $row->Pos;?>"/>
 			    	<span>0</span>
 			    	<input type="range" id="custom-handle" class="ui-slider-handle" name="Categorie[<?php echo $i;?>][level]" min="0" max="10" step="1" value="<?php echo $row->level;?>"/>
 			    	<span>10</span>
@@ -84,14 +84,14 @@ get_header();
 		    	<button id="opener" class="ui-button ui-widget ui-corner-all" type="submit"><?php echo $txtBtn2 ?></button>
 			</div>
 		</form>
-			</div>
+			
         </div>
 	</div>
 <?php if (have_posts()) :
     while (have_posts()) : the_post(); ?>
       <div class="post">        
         <div class="post-content">
-        	Le contenu <?php the_content();?>
+        	
         </div>
       </div>
     <?php endwhile; ?>

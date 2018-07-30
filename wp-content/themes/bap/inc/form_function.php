@@ -47,16 +47,16 @@ add_action("after_switch_theme", "testTable");*/
 					'time'=> $now,
 				);
 				$wpdb->replace($tablename, $dataUsers);
-				echo sprintf('<h3>Monsieur%s %s votre e-mail %s, il est %s</h3>', $lastname, $firstname, $mail,$now);
+				//echo sprintf('<h3>Monsieur%s %s votre e-mail %s, il est %s</h3>', $lastname, $firstname, $mail,$now);
 				$txtBtn1 = "Corriger";
 				$valid = TRUE;
 			endif;
-			var_dump($valid);
+			//var_dump($valid);
 				global $wpdb;
 				$tablename = 'users';
 				$i=0;
 				$cate=$_POST["Categorie"];
-				var_dump($cate);
+				//var_dump($cate);
 				if ($valid == TRUE) :
 				foreach ($cate as $c) {
 					extract($c);
